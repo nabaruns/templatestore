@@ -1,0 +1,110 @@
+[
+	{
+		"id": 1,
+		"name": "Blue template",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"type": "html5",
+		"price": 9.99,
+		"images": [
+			{
+				"name": "blue1.jpg"
+			},
+			{
+				"name": "blue2.jpg"
+			},
+			{
+				"name": "blue3.jpg"
+			},
+			{
+				"name": "blue4.jpg"
+			},
+			{
+				"name": "blue5.jpg"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Red template",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"type": "html5",
+		"price": 9.99,
+		"images": [
+			{
+				"name": "blue1.jpg"
+			}
+		]
+	},
+	{
+		"id": 3,
+		"name": "Green template",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"type": "html5",
+		"price": 9.99,
+		"images": [
+			{
+				"name": "blue1.jpg"
+			},
+			{
+				"name": "blue2.jpg"
+			},
+			{
+				"name": "blue3.jpg"
+			},
+			{
+				"name": "blue4.jpg"
+			},
+			{
+				"name": "blue5.jpg"
+			}
+		]
+	},
+	{
+		"id": 4,
+		"name": "Gray template",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"type": "html5",
+		"price": 9.99,
+		"images": [
+			{
+				"name": "blue1.jpg"
+			},
+			{
+				"name": "blue2.jpg"
+			},
+			{
+				"name": "blue3.jpg"
+			},
+			{
+				"name": "blue4.jpg"
+			},
+			{
+				"name": "blue5.jpg"
+			}
+		]
+	},
+	{
+		"id": 5,
+		"name": "Orange template",
+		"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+		"type": "html5",
+		"price": 9.99,
+		"images": [
+			{
+				"name": "blue1.jpg"
+			},
+			{
+				"name": "blue2.jpg"
+			},
+			{
+				"name": "blue3.jpg"
+			},
+			{
+				"name": "blue4.jpg"
+			},
+			{
+				"name": "blue5.jpg"
+			}
+		]
+	}
+]

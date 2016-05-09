@@ -1,0 +1,16 @@
+<div class="row templates-row">
+	<div ng-if="dataLoading" class ="loader">
+		<img src="data:image/gif;base64,R0lGODlhDwAMAMQfAOGdCeGhCeKiCtCTCOGeCtGWCc+UCOGiCNScCN+fCt+fCdSZCd+gCc+UCs6VCOCgCeGeCeCgCuKiCM+VCOCdCeKfCs+TCOKfCdCUCNCWCNCUCs+WCs+WCP/htdCWCf///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQFAAAfACwAAAAADwAMAAAFgODzVBcjXcanrl+QaZumIUnDqoLHedbGLZRLBCApAjaFjUczGHgKngEHI8z4lDudx2NVPDwY7pYDW3ImBwrY4om1NdNNhhBZaiY6jpWzs1QgcRhkGRkTFoYWARAaGA4aDjEbGxMZYQEUHG4yehOZGh4RFQQQFxQAAn8XDxQVAgAhACH5BAUKAB8ALAIACQALAAEAAAUGYCeOZBcCACH5BAUKAB8ALAIABwALAAEAAAUGYCeOZBcCACH5BAUKAB8ALAIABQALAAEAAAUGYCeOZBcCACH5BAUKAB8ALAIAAwAFAAEAAAUEYCeKIQAh+QQFCgAfACwCAAMABQABAAAFBmCxedoQAgAh+QQFCgAfACwCAAUACwABAAAFCiDmZZ7HaZuncSEAIfkEBQoAHwAsAgAHAAsAAQAABQmgpk0ex2Wb6YUAIfkEBQoAHwAsAgAJAAsAAQAABQog5mjOpm3blGEhADs=" />
+	</div>
+	<div ng-repeat="template in templates">
+		<a href="#/gallery/{{template.permalink}}">
+		<div class="col-md-3 gap-top viewItem img-special-effect" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)); background: url(img/{{template.images[0]}}); background-size: cover;" alt="{{template.name}}">
+			<!-- <a class="" href="#/templates/{{template.id}}">
+				<img ng-src="img/{{template.images[0]}}">
+			</a> -->
+			<h4 class="viewTitle">{{template.name}}</h4>
+			<h4 class="viewExtra">{{template.price | currency:"Rs. "}}</h4>
+		</div>
+	</a>
+	</div>
+</div>

@@ -1,0 +1,163 @@
+<div class="row">
+        <a class="pull-right" ng-click="logout()">Logout</a>
+</div>
+<div class="row">
+    <div class="col-md-2">
+        <a class="btn btn-primary btn-lg" ng-click="addFormShow()" ng-hide="showAddForm">+</a>
+        <a class="btn btn-danger btn-lg" ng-click="addFormHide()" ng-show="showAddForm">-</a>
+        <a class="btn btn-danger btn-lg" ng-click="editItemHide()" ng-show="itemEditBool">-</a>
+        <a class="btn btn-danger btn-lg" ng-click="viewItemHide()" ng-show="itemShowBool">-</a>
+    </div>
+	<div class="col-md-10">
+        <div class="alert-msg"><strong>{{msg}}</strong></div>
+
+        <!-- View panel -->
+        <div class="row" ng-show="itemShowBool">
+            <div class="panel">
+                <h3>{{viewName}}</h3>
+                <ul>
+                    <li><strong>Description: </strong>{{viewDescription}}</li>
+                    <li><strong>Type: </strong>{{viewType}}</li>
+                    <li><strong>Price: </strong>{{viewPrice | currency}}</li>
+                    <li><strong>Image: </strong>
+                        <div class="row">
+                            <div ng-repeat="image in images | limitTo:4">
+                                <div class="col-md-3">
+                                    <img class="img-full" ng-src="img/{{image}}">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+         <!-- Add form -->
+		<form class="form-horizontal panel" ng-submit="addFormSubmit()" ng-show="showAddForm">
+            <h3>Add item</h3>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="name">Title:</label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="name" placeholder="Title" ng-change="updatePermalink()" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="name">Permalink:</label>
+                <div class="col-xs-9">
+                    <p class="light-text">{{permalink}}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="description">Description:</label>
+                <div class="col-xs-9">
+                    <textarea type="text" class="form-control" rows="5" ng-model="description" placeholder="Description" required />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="tempType">Type:</label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="tempType" placeholder="Type" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="price">Price:</label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="price" placeholder="Price" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="img">Image:</label>
+                <div class="col-xs-9">
+                    <input file-model = "myFile" type="file"/>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <input type="submit" class="btn btn-success" value="Submit">
+                    <input type="reset" class="btn btn-default" value="Reset">
+                </div>
+            </div>
+        </form>
+
+        <!-- Edit Form -->
+        <form class="form-horizontal panel" ng-submit="editFormSubmit()" ng-show="itemEditBool">
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="name">Title:</label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="id" ng-hide="true">
+                    <input type="text" class="form-control" ng-model="name" placeholder="Title" ng-change="activatePermBtn()" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="permalink">Permalink:</label>
+                <div class="col-xs-9">
+                    <p class="light-text">{{permalink}}<a class="btn btn-default left-gap" ng-click="updatePermalink()" ng-show="showPermBtn">Change</a></p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="description">Description:</label>
+                <div class="col-xs-9">
+                    <textarea type="text" class="form-control" rows="5" ng-model="description" placeholder="Description" required >{{description}}</textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="tempType">Type:</label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="tempType" placeholder="Type" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="price">Price:</label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="price" placeholder="Price" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-xs-3" for="img">Image:</label>
+                <div class="col-xs-4">
+                    <img class="img-full" ng-src="img/{{images[0]}}">
+                    <p>{{images[0]}}</p>
+                </div>
+                <div class="col-xs-4">
+                    <input file-model = "myFile" type="file"/>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-9">
+                    <input type="submit" class="btn btn-success" value="Submit">
+                </div>
+            </div>
+        </form>
+
+        <!-- List table -->
+        <div class="col-md-8"><h3>Your items ({{templates.length}})</h3></div>
+        <div class="col-md-4"><input type="text" class="form-control" ng-model="filterText" placeholder="Search"></div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th width="300px">Title</th>
+                    <th width="100px">Type</th>
+                    <th width="10%">Price</th>
+                    <th width="25%">Created on</th>
+                    <th width="19%">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="template in templates | filter:filterText">
+                    <td>{{template.name}}</td>
+                    <td>{{template.type}}</td>
+                    <td>{{template.price | currency:"Rs."}}</td>
+                    <td>{{template.createTime}}</td>
+                    <td>
+                        <a class="btn btn-sm btn-success" ng-click="viewItem(template)">View</a>
+                        <a class="btn btn-sm btn-default" ng-click="editItem(template)">Edit</a>
+                        <a class="btn btn-sm btn-danger" ng-click="removeItem(template, $index, templates)">Delete</a>
+                    </td>
+                </tr>
+                <tr><td><img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" /></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
